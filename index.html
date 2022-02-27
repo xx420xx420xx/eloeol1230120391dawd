@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from cheapvape.pl/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Feb 2022 16:38:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>cheapvape</title>
+<link rel="icon" type="image/png" href="images/homepage/cheapvape_Logo.png">
+<link rel="preconnect" href="https://fonts.gstatic.com/">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/app.css" />
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="css/Strona_G__wna.css" />
+<link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<script>
+let snowflakes_count = 50;
+
+// let base_css = ``; // Put your custom base css here
+
+if (typeof total !== 'undefined'){
+    snowflakes_count = total;
+}
+
+// Creating snowflakes
+function spawn_snow(snow_density = 200) {
+    snow_density -= 1;
+
+    for (let x = 0; x < snow_density; x++) {
+        let board = document.createElement('div');
+        board.className = "snowflake";
+
+        document.getElementById("snowydiv").appendChild(board);
+    }
+}
+
+// Append style for each snowflake to the head
+function add_css(rule) {
+    let css = document.createElement('style');
+    css.type = 'text/css';
+    css.appendChild(document.createTextNode(rule)); // Support for the rest
+    document.getElementsByTagName("head")[0].appendChild(css);
+}
+
+
+
+// Math
+function random_int(value = 100){
+    return Math.floor(Math.random() * value) + 1;
+}
+
+function random_range(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+// Create style for snowflake
+function spawnSnowCSS(snow_density = 200){
+    let snowflake_name = "snowflake";
+    let rule = ``;
+    if (typeof base_css !== 'undefined'){
+        rule = base_css;
+    }
+    
+    for(let i = 1; i < snow_density; i++){
+        let random_x = Math.random() * 100; // vw
+        let random_offset = random_range(-100000, 100000) * 0.0001; // vw;
+        let random_x_end = random_x + random_offset;
+        let random_x_end_yoyo = random_x + (random_offset / 2);
+        let random_yoyo_time = random_range(30000, 80000) / 100000;
+        let random_yoyo_y = random_yoyo_time * 100; // vh
+        let random_scale = Math.random();
+        let fall_duration = random_range(10, 30) * 1; // s
+        let fall_delay = random_int(30) * -1; // s
+        let opacity_ = Math.random();
+
+        rule += `
+        .${snowflake_name}:nth-child(${i}) {
+            opacity: ${opacity_};
+            transform: translate(${random_x}vw, -10px) scale(${random_scale});
+            animation: fall-${i} ${fall_duration}s ${fall_delay}s linear infinite;
+        }
+
+        @keyframes  fall-${i} {
+            ${random_yoyo_time*100}% {
+                transform: translate(${random_x_end}vw, ${random_yoyo_y}vh) scale(${random_scale});
+            }
+
+            to {
+                transform: translate(${random_x_end_yoyo}vw, 100vh) scale(${random_scale});
+            }
+            
+        }
+        `
+    }
+
+    add_css(rule);
+}
+
+// Load the rules and execute after the DOM loads
+window.onload = function() {
+ let ax = document.createElement('div');
+        ax.id = "snowydiv";
+
+        document.body.appendChild(ax);
+  spawnSnowCSS(snowflakes_count);
+  spawn_snow(snowflakes_count);  
+};
+</script>
+<style>
+#snowydiv{
+position: fixed;
+top: 0;
+left: 0;
+
+}
+.snowflake {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(white, white); /* Workaround for Chromium's selective color inversion */
+    border-radius: 50%;
+    filter: drop-shadow(0 0 10px white);
+}
+</style>
+<script type="text/javascript">
+    window.Laravel = {"csrfToken":"R4TPKN1Xju7etATbnsPYpl4AaOHRp8P5TTdXMfVb"};
+</script>
+<style>
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+.button {
+    width: 188px;
+    height: 43px;
+    border-radius: 89px;
+    text-align: center;
+    color: #000;
+    background: #00CBFF;
+    outline: none !important;
+    border: none;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+.uzi-color {
+    color: #00CBFF !important;
+}
+.input {
+    background: #000000;
+    border-radius: 27px;
+    color: #fff;
+    padding: 10px 15px;
+    display: block;
+    width: 100%;
+    outline: none;
+    border: 1px solid #00CBFF;
+    margin-top: 30px;
+}
+.blur-modal {
+    display: none;
+    position: absolute;
+    width: 80%;
+    min-height: 779px;
+    background: rgba(0, 0, 0, .8);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    border: 1px solid #00CBFF;
+    padding: 3rem;
+}
+.promotion {
+    position: fixed;
+    align-items: center;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 600px;
+    background: black;
+    background-image: url('images/homepage/planety.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px;
+    z-index: 100;
+    border-radius: 10px;
+    border: 2px solid #00CBFF;
+    display: flex;
+}
+.promotion p {
+    color: #fff;
+    font-size: 16px;
+    margin: 0;
+}
+.promotion-logo {
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+.promo-pic {
+    position: absolute;
+    top: 15%;
+    left: 45%;
+    transform: translate(-45%, 15%);
+    width: 900px;
+    z-index: 1;
+    animation: float 5s ease-in-out infinite;
+}
+#confetti-canvas {
+  position:fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+@keyframes  float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translate(-45%, 15%);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translate(-45%, 20%);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translate(-45%, 15%);
+	}
+}
+.product {
+  width: 295px;
+  height: 428px;
+  margin: 0 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.product-details {
+  width: 295px;
+  height: 371px;
+  background: linear-gradient(45deg, #00cbff, #0062d2);
+  border-radius: 24px;
+  text-align: center;
+}
+
+.best-option {
+  color: #ffd500;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.product-details img {
+  max-width: 206px;
+  max-height: 236px;
+  display: block;
+  margin: auto;
+}
+@media(max-width: 1230px) {
+    #panel-nav ul {
+        display: none;
+    }
+
+    .blur-modal {
+        width: 100% !important;
+    }
+
+    .hamburger,
+    #logout-part-mobile,
+    #desktop-notifications {
+        display: block;
+    }
+
+    #logout-part,
+    #desktop-notifications {
+        display: none;
+    }
+
+    .container-fluid {
+        width: 100% !important;
+    }
+}
+@media(max-width: 900px) {
+    .promo-pic {
+        width: 100% !important;
+    }
+}
+@media(max-width: 650px) {
+    .promotion {
+        width: 100% !important;
+    }
+}
+</style>
+<script async src='cdn-cgi/challenge-platform/h/g/scripts/invisible.js'></script></head>
+<body style="background: url('images/special/newbg3.png');">
+<section id="header">
+<div>
+<div class="container-fluid" id="app">
+<nav id="nav">
+<div class="row">
+<div class="col-lg-3">
+<p id="nav-title"><a href="index.html" id="logo-link">cheapvape</a></p>
+<hr id="nav-title-bar">
+</div>
+<div class="col-lg-9 desktop-block-view" id="nav-container">
+</div>
+<div class="col-lg-12 text-center mobile-block-view">
+<button id="hamburger-button"><i class="fas fa-bars"></i></button>
+<div id="mobile-nav">
+<div id="mobile-nav-bg">
+<div class="row p-0 w-100">
+<div class="col-lg-12">
+<span id="close-mobile-nav">
+<i class="fas fa-times"></i>
+</span>
+</div>
+<div class="col-lg-12 mt-10" id="mobile-nav-content">
+<a href="opinie.html">Opinie</a>
+<a href="poradniki.html">Poradniki</a>
+<a href="kontakt.html">Kontakt</a>
+<a href="login.html">Zaloguj się</a>
+<a href="register.html" id="registerNow">Zarejestruj się</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<div id="left-side">
+<h1 class="title">cheapvape</h1>
+<p class="description">
+Najlepszy clicker w Polsce. Już dostępny. <br>
+Sprawdź naszą ofertę.
+</p>
+<div class="row p-0 w-100">
+<div class="col-lg-5 p-0">
+<button class="left-blue-button" id="left-blue-button" onclick="gotoBuy()">Discord</button>
+</div>
+<div class="col-lg-7 p-0">
+</div>
+</div>
+</div>
+<div id="right-side">
+<video muted autoplay>
+<source src="videos/logo.webm" type="video/webm">
+</video>
+<img src="images/static-logo.png" alt="cheapvape Logo">
+</div>
+</div>
+</div>
+</section>
+<section id="middle">
+<div>
+<div class="container-fluid">
+<div style="text-shadow: 2px 2px 4px #000000; color: white; text-align: center; white-space: nowrap; font-family: Poppins; font-style: normal; font-weight: normal; font-size: 36px; letter-spacing: 0.72px;">
+tekst0<br>
+<div style="font-weight: lighter; font-size: 24px; color: rgba(223,223,223,1); letter-spacing: 0.55px;">
+tekst1<br>
+tekst2	<br> </div>
+</div>
+<div class="row">
+<div class="col-lg-6">
+<div id="Group_26">
+<svg class="Rectangle_57_bm">
+<linearGradient id="Rectangle_57_bm" spreadMethod="pad" x1="0.973" x2="0.112" y1="-0.062" y2="1.077">
+<stop offset="0" stop-color="#00142c" stop-opacity="1"></stop>
+<stop offset="1" stop-color="#030516" stop-opacity="1"></stop>
+</linearGradient>
+<rect id="Rectangle_57_bm" rx="4" ry="4" x="0" y="0" width="710" height="431">
+</rect>
+</svg>
+<svg class="Rectangle_81_bo">
+<linearGradient id="Rectangle_81_bo" spreadMethod="pad" x1="-0.034" x2="0.703" y1="2.542" y2="-1.239">
+<stop offset="0" stop-color="#00142c" stop-opacity="1"></stop>
+<stop offset="1" stop-color="#030516" stop-opacity="1"></stop>
+</linearGradient>
+<rect id="Rectangle_81_bo" rx="4" ry="4" x="0" y="0" width="710" height="100">
+</rect>
+</svg>
+<div id="tekst3">
+<span>tekst4</span>
+</div>
+<div id="Mnstwo_ustawie_i_opcji_Macro_n">
+<span>Mnóstwo ustawień i opcji. Macro na prawy i <br />lewy przycisk. Clicker na kopanie. Nie wykrywalny<br />podczas sprawdzania przez administrację. </span>
+</div>
+<div id="Group_24">
+<button class="left-blue-button" id="left-blue-button" onclick="gotoBuy()">kupno</button>
+</div></div>
+<div id="Group_25">
+
+</div>
+</div>
+<div class="col-lg-6">
+<svg class="Rectangle_83">
+<rect id="Rectangle_83" rx="4" ry="4" x="0" y="0" width="563" height="361">
+</rect>
+</svg>
+<img id="Mask_Group_1" src="images/homepage/Mask_Group_1.png">
+</div>
+
+</div>
+</div>
+</section>
+<section id="bottom">
+<div class="container-fluid">
+<h1 class="text-center medium-title">Oni już nam zaufali:</h1>
+<div class="row mt-5">
+<div class="col-lg-7 mx-auto d-flex ps-1" id="partners-container">
+<div>
+<h1 class="fw-500 text-white mb-3" style="font-size: 20px !important;">AMBEAA</h1>
+<p class="description" style="font-size: 20px !important;"><a target="_blank" href="https://www.youtube.com/channel/UCdHloOouV3hxL1PSrDkFzXQ">YouTuber</a></p>
+</div>
+<div>
+<img width="139" id="partners-logo" style="border: 2px solid #fff; width: 139px !important; height: 139px !important;" class="d-block mx-auto" src="https://cravatar.eu/helmavatar/autism09/190.png" alt="Dragon" height="139">
+</div>
+</div>
+<div class="col-lg-7 mx-auto d-none ps-2" id="partners-container">
+<div>
+<h1 class="fw-500 text-white mb-3" style="font-size: 20px !important;">kkubus</h1>
+<p class="description" style="font-size: 20px !important;"><a target="_blank" href="https://www.youtube.com/c/kkubus">YouTuber</a></p>
+</div>
+<div>
+<img width="139" id="partners-logo" style="border: 2px solid #fff; width: 139px !important; height: 139px !important;" class="d-block mx-auto" src="https://cravatar.eu/helmavatar/UjangCowboy/190.png" alt="Dragon" height="139">
+</div>
+</div>
+<div class="col-lg-7 mx-auto d-flex ps-3" style="display: none !important;" id="partners-container">
+<div>
+<h1 class="fw-500 text-white mb-3" style="font-size: 20px !important;">benq</h1>
+<p class="description" style="font-size: 20px !important;"><a target="_blank" href="https://www.youtube.com/channel/UCvf3PAYc5Iah4qFx7Tw1J8A">YouTuber</a></p>
+</div>
+<div>
+<img width="139" id="partners-logo" style="border: 2px solid #fff; width: 139px !important; height: 139px !important;" class="d-block mx-auto" src="https://cravatar.eu/helmavatar/boxfight/190.png" alt="Dragon" height="139">
+</div>
+</div>
+</div>
+<hr style="margin-left: auto; margin-right: auto; color: gray; height: 1px; width: 50%; z-index: 999;" color="gray">
+<div style="text-align: center;">
+<a href="javascript:void(0)" onclick="previousSlide()" class="col-lg-1 mx-auto text-center" id="partners-left" style="margin-right: 20px !important;">
+<svg class="Rectangle_57_cb" style="cursor: pointer">
+<rect id="Rectangle_57_cb" rx="21.5" ry="21.5" x="0" y="0" width="43" height="43">
+</rect>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="19" height="22" viewBox="0 0 19 22" style="cursor: pointer">
+<path data-name="SLIDE LEFT" d="M11,0,22,19H0Z" transform="translate(0 22) rotate(-90)" fill="#fff" />
+</svg>
+</a>
+<a href="javascript:void(0)" onclick="nextSlide()" class="col-lg-1 mx-auto text-center" id="partners-right" style="margin-left: 20px !important;">
+<svg class="Rectangle_57_cf" style="cursor: pointer">
+<rect id="Rectangle_57_cf" rx="21.5" ry="21.5" x="0" y="0" width="43" height="43">
+</rect>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="19" height="22" viewBox="0 0 19 22" style="cursor: pointer">
+<path data-name="SLIDE ROGHT" d="M11,0,22,19H0Z" transform="translate(19) rotate(90)" fill="#fff" />
+</svg>
+</a>
+</div>
+<div class="col-sm-12 mt-10">
+<div class="row p-0">
+<div class="col-sm-3">
+<img id="footer-logo" src="images/homepage/cheapvape_Logo.png" alt="cheapvape Logo">
+</div>
+<div class="col-sm-5 text-center">
+<h1 class="uziblue-title">Social Media</h1>
+<div class="col-sm-12 mt-3">
+<div class="row p-0 d-flex" id="social-container">
+<div class=" text-center">
+<a href="https://www.facebook.com/cheapvapePL-Najlepsze-macro-w-Polsce-102391928317248" target="_blank">
+<img width="38" height="38" class="d-block mx-auto" src="images/homepage/fb_ee.png" alt="FB Icon">
+<p class="white-text">Facebook</p>
+</a>
+</div>
+<div class=" text-center">
+<a href="https://discord.gg/ZMxu9tA4KW" target="_blank">
+<img width="38" height="38" class="d-block mx-auto" src="images/homepage/dc_ek.png" alt="DC Icon">
+<p class="white-text">Discord</p>
+</a>
+</div>
+<div class=" text-center">
+<a href="https://www.instagram.com/maltixon" target="_blank">
+<img width="38" height="38" class="d-block mx-auto" src="images/homepage/ig.png" alt="IG Icon">
+<p class="white-text">Instagram</p>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-4">
+<div id="footer-links" class="desktop-block-view">
+<a href="index.html" class="footer-link">Strong główna</a>
+<a href="kontakt.html" class="footer-link">Kontakt</a>
+<a href="regulamin.html" class="footer-link">Regulamin</a>
+<a href="polityka-prywatnosci.html" class="footer-link">Polityka Prywatności</a>
+<a href="login.html" class="footer-link uziblue-link">Zaloguj się</a>
+</div>
+<div id="footer-links" class="mobile-block-view text-center">
+<a href="regulamin.html" class="footer-link">Regulamin</a>
+<a href="polityka-prywatnosci.html" class="footer-link">Polityka Prywatności</a>
+</div>
+</div>
+<div class="col-lg-12 text-center white-text mt-4 mb-3">
+<p class="fs-12 m-0"><span class="uziblue-description">© <span id="year"></span> - cheapvape.pl</span> | Wszelkie prawa zastrzeżone.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/particle.js"></script>
+<script src="index.html"></script>
+<script>
+        $("#year").html(new Date().getFullYear());
+        startConfetti()
+        RestartConfetti()
+        
+        $(document).ready(function(){
+            $("a").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+
+                    var hash = this.hash;
+
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function(){
+                        window.location.hash = hash;
+                    });
+                }
+            });
+
+            setInterval(() => {
+                $.ajax({
+                    type: "GET",
+                    url: "/api/statistics",
+                    success: function(data)
+                    {
+                        $("#stats-online").html(data.online);
+                    }
+                });
+            }, (1000*60));
+        });
+
+        function changePr(name) {
+            $("#" + name).toggleClass("d-block");
+        }
+
+        function openProduct() {
+            $("#shopModal").css("display", "block");
+        }
+
+        function closeModal() {
+            $("#shopModal").css("display", "none");
+        }
+
+        function gotoLogin() {
+            window.location.href = "login.html";
+        }
+    </script>
+<script>
+        var currentPage = 1;
+        function nextSlide() {
+            var nextPage = currentPage + 1;
+console.log(currentPage +" : "+ nextPage);
+            if (!$(".ps-" + nextPage)[0]) {
+console.log(currentPage +" : "+ nextPage);
+                $(".ps-" + currentPage).attr("style", "display: none !important");
+                currentPage = 1;
+                $(".ps-" + currentPage).attr("style", "display: flex !important");
+console.log(currentPage +" : "+ nextPage);
+                return;
+            }
+
+            $(".ps-" + currentPage).attr("style", "display: none !important");
+console.log(currentPage +" : "+ nextPage);
+            currentPage = currentPage + 1;
+            $(".ps-" + currentPage).attr("style", "display: flex !important");
+console.log(currentPage +" : "+ nextPage);
+        }
+
+        function previousSlide() {
+            var previousPage = currentPage - 1;
+            if (!$(".ps-" + previousPage)[0]) return;
+
+            $(".ps-" + currentPage).attr("style", "display: none !important");
+            currentPage = currentPage - 1;
+            $(".ps-" + currentPage).attr("style", "display: flex !important");
+        }
+
+        function gotoBuy() {
+            window.location.href= "https://discord.gg/AdmZb7HeDK";
+        }
+
+        $("#hamburger-button").on('click', function() {
+            $("#mobile-nav").css("width", "90%");
+            $("#mobile-nav").css("border-left", "1px solid #fff")
+        })
+        $("#close-mobile-nav").on('click', function() {
+            $("#mobile-nav").css("width", "0");
+            $("#mobile-nav").css("border", "none")
+        })
+    </script>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6e42d7966b4e0faa',m:'xHhy9FzQlB0lELSkMpYehef8_VL2Jt8FbnS9C89ET4Q-1645979892-0-AfhGorKOCEDH5iTIWMKpxlTPpxnlEJRo8cva/tj4vtZeq00cbivxAZnB3xKoQ+2+yCrNgGhgixzjUVHg1cve21oObPVbKqiiuSoyAmqbhu+kvXh8cShr4zWDdtHLm6uoqw==',s:[0x694698cccd,0xeeaf6df5c1],u:'/cdn-cgi/challenge-platform/h/g'}})();</script></body>
+
+<!-- Mirrored from cheapvape.pl/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Feb 2022 16:38:37 GMT -->
+</html>
